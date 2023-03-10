@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button, Container, Card, Col, Row } from "react-bootstrap";
+import './App.css';
 
 function Apinews() {
   const [articles, setArticles] = useState([]);

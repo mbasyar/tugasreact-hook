@@ -1,5 +1,5 @@
 
-import './App.css';
+
 import Apinews from './hook';
 
 function App() {
