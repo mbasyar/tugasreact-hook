@@ -1,3 +1,32 @@
-form {
-  background-color: blue;
-}
+.form-control {
+  background-color: rgb(255, 255, 255);
+  padding: 5px 20px 5px 20px ;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  cursor: pointer;
+  
+  }
+  button {
+    color: rgb(255, 255, 255);
+    padding: 5px 20px 5px 20px ;
+    font-weight: bold;
+    background-color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  .card {
+    padding: 100px;
+    margin: auto;
+    background-color: wheat;
+  }
+  .card-body {
+    font-weight: 700px;
+    font-family: cursive;
+  }
+  .card-img {
+    size: 70px;
+  }
+  #home {
+    background-color: red;
+  }

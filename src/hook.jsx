@@ -36,17 +36,17 @@ function Apinews() {
   };
 
   return (
-    <>
+<div id="home">
       <Container
         style={{
           width: "400px",
           margin: "10px auto 0",
           padding: "10px",
+          backgroundColor: "blue"
         }}
       >
         <Form className="d-flex" onSubmit={handleSearch}>
           <Form.Control
-            className="me-2"
             type="text"
             aria-label="Search"
             placeholder="Search"
@@ -66,8 +66,8 @@ function Apinews() {
           ) : (
             articles.map((article) => (
               <Col className="md-4 my-5">
-                <Card style={{ width: "18rem" }} key={article.title}>
-                  <Card.Img variant="top" src={article.image} />
+                <Card key={article.title}>
+                  <Card.Img src={article.image} />
                   <Card.Body>
                     <Card.Title>{article.title}</Card.Title>
                     <Card.Text>{article.description}</Card.Text>
@@ -80,7 +80,7 @@ function Apinews() {
         </Row>
         {error && <p>{error.message}</p>}
       </Container>
-    </>
+</div>
 
     // <div>
     //   <form onSubmit={handleSearch}>
