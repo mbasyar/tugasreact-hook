@@ -1,16 +1,18 @@
-.form-control {
-  background-color: rgb(255, 255, 255);
+.input{
+  background-color: wheat;
   padding: 5px 20px 5px 20px ;
   color: rgb(0, 0, 0);
   border-radius: 10px;
-  cursor: pointer;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10px;
   
   }
-  button {
+  .icon{
     color: rgb(255, 255, 255);
     padding: 5px 20px 5px 20px ;
     font-weight: bold;
-    background-color: blue;
+    background-color: rgb(109, 194, 161);
     border-radius: 10px;
     cursor: pointer;
     margin-left: 10px;
@@ -18,7 +20,10 @@
   .card {
     padding: 100px;
     margin: auto;
+    margin-bottom: 10px;
     background-color: wheat;
+    border: 1px solid black;
+    border-radius: 10px;
   }
   .card-body {
     font-weight: 700px;
@@ -27,3 +32,7 @@
   .card-img {
     size: 70px;
   }
+.content__container{
+  background-color: rgb(255, 255, 255);
+  padding: 20px;
+}

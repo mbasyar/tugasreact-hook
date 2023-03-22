@@ -1,11 +1,9 @@
-
-
-import Apinews from './hook';
+import News from "./pages/hook";
 
 function App() {
   return (
     <div className="App">
-      <Apinews />
+      <News />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Isloading from "./isloading";
+import '../App.css';
 
 const News = () => {
   const [articles, setArticles] = useState([]);
