@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button, Container, Card, Col, Row } from "react-bootstrap";
-import './App.css';
+import Isloading from "./isloading";
 
-function Apinews() {
+const News = () => {
   const [articles, setArticles] = useState([]);
   const [query, setQuery] = useState("Trending");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
@@ -32,74 +32,98 @@ function Apinews() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    setQuery(event.target.elements.search.value);
+    setQuery(input);
   };
 
   return (
-<div id="home">
-      <Container
-        style={{
-          width: "400px",
-          margin: "10px auto 0",
-          padding: "10px",
-          backgroundColor: "blue"
-        }}
-      >
-        <Form className="d-flex" onSubmit={handleSearch}>
-          <Form.Control
+    <div className="content__container">
+      <div>
+        <form class="input-container" onSubmit={handleSearch}>
+          <input
             type="text"
-            aria-label="Search"
-            placeholder="Search"
-            onChange={(event) =>
-              this.setState({ searchTerm: event.target.value })
-            }
-          ></Form.Control>
-          <Button type="submit" variant="outline-primary">
-            Search
-          </Button>
-        </Form>
-      </Container>
-      <Container>
-        <Row>
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : (
-            articles.map((article) => (
-              <Col className="md-4 my-5">
-                <Card key={article.title}>
-                  <Card.Img src={article.image} />
-                  <Card.Body>
-                    <Card.Title>{article.title}</Card.Title>
-                    <Card.Text>{article.description}</Card.Text>
-                    <a href={article.url}>Show Detail</a>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))
-          )}
-        </Row>
-        {error && <p>{error.message}</p>}
-      </Container>
-</div>
+            className="input"
+            placeholder="search..."
+            onChange={(event) => setInput(event.target.value)}
+          />
+          <button className="icon" type="submit">
+            <svg
+              width="19px"
+              height="19px"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <path
+                  opacity="1"
+                  d="M14 5H20"
+                  stroke="#000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+                <path
+                  opacity="1"
+                  d="M14 8H17"
+                  stroke="#000"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+                <path
+                  d="M21 11.5C21 16.75 16.75 21 11.5 21C6.25 21 2 16.75 2 11.5C2 6.25 6.25 2 11.5 2"
+                  stroke="#000"
+                  stroke-width="2.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+                <path
+                  opacity="1"
+                  d="M22 22L20 20"
+                  stroke="#000"
+                  stroke-width="3.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></path>{" "}
+              </g>
+            </svg>
+          </button>
+        </form>
+      </div>
 
-    // <div>
-    //   <form onSubmit={handleSearch}>
-    //     <input type="text" name="search" />
-    //     <button type="submit">Search</button>
-    //   </form>
-    //   {isLoading ? (
-    //     <p>Loading...</p>
-    //   ) : (
-    //     articles.map((article) => (
-    //       <div key={article.id}>
-    //         <h2>{article.title}</h2>
-    //         <p>{article.description}</p>
-    //       </div>
-    //     ))
-    //   )}
-    //   {error && <p>{error.message}</p>}
-    // </div>
+      <div className="row">
+        {isLoading ? (
+          <Isloading />
+        ) : (
+          articles.map((article, index) => (
+            <div className="col" key={index}>
+              <div className="card">
+                <img className="image" src={article.image} />
+                <div className="content">
+                  <span className="title">{article.title}</span>
+
+                  <p className="desc">{article.description}</p>
+
+                  <a href={article.url} className="action">
+                    Find out more
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      {error && <p>{error.message}</p>}
+    </div>
   );
-}
+};
 
-export default Apinews;
+export default News;
